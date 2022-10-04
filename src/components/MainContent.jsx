@@ -1,33 +1,17 @@
 import React from "react";
-import {
-  uniqueNamesGenerator,
-  adjectives,
-  colors,
-  animals,
-} from "unique-names-generator";
+import Animal from "./Animal";
 
 export default () => {
-  let myAnimals = [];
-
-  for (let i = 0; i < 50; i++) {
-    myAnimals.push(
-      uniqueNamesGenerator({
-        dictionaries: [adjectives, colors, animals],
-        length: 3,
-        separator: " ",
-      })
-        .split(" ")
-        .map((word) => word[0].toUpperCase() + word.slice(1))
-        .join(" ")
-    );
+  let animals = [];
+  for (let i = 0; i < 100; i++) {
+    animals.push(i);
   }
 
-  // `My animal is ${animal}`
   return (
     <main>
       <ul>
-        {myAnimals.map((animal) => {
-          return <li>{animal}</li>;
+        {animals.map((i) => {
+          return <Animal />;
         })}
       </ul>
     </main>
